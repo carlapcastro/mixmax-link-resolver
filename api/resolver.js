@@ -1,6 +1,3 @@
-var request = require('request');
-var _ = require('underscore');
-
 
 // The API that returns the in-email representation.
 module.exports = function(req, res) {
