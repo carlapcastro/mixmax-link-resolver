@@ -1,10 +1,14 @@
 
 // The API that returns the in-email representation.
 module.exports = function(req, res) {
+  if (!Object.keys(req.query).includes('url')) {
+    res.status(400).send('No URL parameter in the request');
+    return;
+  }
   var url = req.query.url.trim();
   var uri;
 
-  // Spotify formats for urls or uris:
+  // Spotify formats for urls and uris:
   var isUri = url.match(/spotify:.*:([a-zA-Z0-9]{22})$/);
   var isUrl = url.match(/spotify\.com\/.*\/([a-zA-Z0-9]{22})/);
 
