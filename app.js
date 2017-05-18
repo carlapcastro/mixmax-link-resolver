@@ -1,6 +1,6 @@
 var express = require('express');
 var bodyParser = require('body-parser');
-var app = express();
+var app = module.exports = express();
 var cors = require('cors');
 
 // Since Mixmax calls this API directly from the client-side, it must be whitelisted.
@@ -24,4 +24,4 @@ if (process.env.NODE_ENV === 'production') {
       cert: keys.certificate
     }, app).listen(process.env.PORT || 9146);
   });
-}   
+}
